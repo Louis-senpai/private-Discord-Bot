@@ -10,7 +10,7 @@ require("dotenv").config();
 
 const EventHandler = require("./eventLoader");
 const ButtonHandler = require("./buttonHandler");
-
+const MySQLLoader = require('./MysqlLoader');
 module.exports = class BoilerplateClient extends Client {
   constructor(customCacheOptions = {}) {
     super({
@@ -35,7 +35,8 @@ module.exports = class BoilerplateClient extends Client {
     });
 
     this.commands = new Collection();
-    
+    this.mysql = new MySQLLoader();
+    this.mysql.load();
     // Event Loader
     this.eventHandler = new EventHandler(this);
     this.eventHandler.load();
