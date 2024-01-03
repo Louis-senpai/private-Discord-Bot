@@ -35,7 +35,7 @@ module.exports = class BoilerplateClient extends Client {
     });
 
     this.commands = new Collection();
-    this.mysql = new MySQLLoader();
+    this.mysql = new MySQLLoader(this);
     this.mysql.load();
     // Event Loader
     this.eventHandler = new EventHandler(this);

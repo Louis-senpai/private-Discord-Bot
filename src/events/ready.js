@@ -15,6 +15,15 @@ module.exports = async (client) => {
     const command = require(`../commands/${file}`);
     commands.push(command.data.toJSON());
     client.commands.set(command.data.name, command);
+    //log the files when they load 
+    console.log(
+      `${ChalkAdvanced.white("Boilerplate Bot")} ${ChalkAdvanced.gray(
+        ">",
+        )} ${ChalkAdvanced.green(
+          `Loaded command: ${ChalkAdvanced.white(file)}`
+          )}`,
+          );
+          
   }
 
   const rest = new REST({
